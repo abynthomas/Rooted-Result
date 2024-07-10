@@ -1,0 +1,26 @@
+
+
+/* Desktop Styles */
+@media only screen and (min-width: 768px) {
+   .barchart {
+  width:100%;
+  max-width:1000px;
+  margin-left:200px;
+  margin-bottom:60px;
+  }
+
+
+}
+
+/* Mobile Styles */
+@media only screen and (max-width: 767px) {
+  .barchart {
+  width:100%;
+  max-width:1000px;
+  margin-left:0px;
+  margin-bottom:50px;
+  }
+
+}
+
+

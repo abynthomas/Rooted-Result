@@ -1,0 +1,48 @@
+
+  .new-container {
+   margin-top:20px;
+   margin-left:20px;
+   }
+
+    .course-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+  }
+
+  .card-container {
+    margin-bottom: 20px;
+    margin-left:40px;
+  }
+
+  .new-card {
+    /* Add shadows to create the "card" effect */
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    margin-bottom: 30px;
+    border-radius: 20px;
+    width: 400px;
+    height:520px
+  }
+
+  /* On mouse-over, add a deeper shadow */
+  .new-card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  }
+
+  /* Navbar active link */
+  .nav-item.active .nav-link {
+    color: #fff; /* Change active link color */
+    background-color: #007bff; /* Change active link background color */
+    border-radius: 5px; /* Optional: Add border-radius for active link */
+  }
+
+  /* Adjust layout for smaller screens */
+  @media screen and (max-width: 600px) {
+    .course-cards {
+      flex-direction: row; /* Display horizontally */
+      justify-content: flex-start; /* Start from the beginning */
+    }
+
+  }

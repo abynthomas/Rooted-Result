@@ -1,0 +1,126 @@
+.custom-class-for-input {
+    /* Add your custom styles for text input */
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+}
+
+.custom-class-for-file-input {
+    /* Add your custom styles for file input */
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+}
+
+/* Style the submit button */
+.btn-success {
+    background-color: #28a745;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn-success:hover {
+    background-color: #218838;
+}
+
+label[for="id_mock_test_number"] {
+   color:black;
+   font-size:15px;
+}
+
+label[for="id_solution_file"] {
+   color:black;
+   font-size:15px;
+}
+
+.container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center; /* Center align the text inside the container */
+    }
+
+    .heading {
+        font-size: 20px;
+        margin-bottom: 20px;
+        color: black;
+    }
+
+    .row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px; /* Adjust the gap between cards as needed */
+        justify-content: center;
+    }
+
+    .file-card {
+        border: 1px solid #ddd; /* Light border for the card */
+        border-radius: 5px; /* Rounded corners */
+        padding: 15px; /* Spacing inside the card */
+        text-align: center; /* Center align text inside the card */
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Slight shadow for better visualization */
+        width: 150px; /* Fixed width for the card */
+        height: 200px; /* Fixed height for the card */
+        background-color: #fff; /* White background for the card */
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between; /* Ensure the delete button is at the bottom */
+        align-items: center; /* Center align content horizontally */
+    }
+
+    .file-link {
+        text-decoration: none; /* Remove underline from links */
+        color: inherit; /* Inherit text color */
+        display: block; /* Block level to ensure proper spacing */
+        width: 100%;
+    }
+
+    .file-content {
+        margin-bottom: 1px; /* Space between file link and delete button */
+    }
+
+    .file-content p {
+        word-wrap: break-word; /* Ensure text wraps within the card */
+        margin: 0; /* Remove default margin for p elements */
+    }
+
+    .btn {
+        margin-top: 1px;
+    }
+
+    .btn-danger {
+        background-color: #d9534f;
+        color: #fff;
+        border: none;
+        padding: 10px;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    .btn-rounded {
+        border-radius: 50%;
+    }
+
+    .btn-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .ti-trash {
+        font-size: 16px;
+    }
+
+    .no-files-message {
+        font-size: 15px;
+        color: red;
+    }

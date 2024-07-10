@@ -1,0 +1,201 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600&display=swap');
+
+
+        .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center; /* Center align the text inside the container */
+    padding: 20px; /* Add padding to the container */
+}
+
+.heading {
+    font-size: 20px;
+    margin-bottom: 20px;
+    color: black;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; /* Adjust the gap between cards as needed */
+    justify-content: center;
+}
+
+.btn {
+    margin-top: 1px;
+}
+
+.btn-danger {
+    background-color: #d9534f;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn-rounded {
+    border-radius: 50%;
+}
+
+.btn-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ti-trash {
+    font-size: 16px;
+}
+
+.no-files-message {
+    font-size: 15px;
+    color: red;
+}
+
+*{
+  margin: 0;
+  border: 0;
+  padding: 0;
+  outline: 0;
+}
+
+*, *:after, *:before{
+  box-sizing: border-box;
+}
+
+
+.news-card{
+  width: 25rem;
+  height: auto;
+  background: #fff;
+  border-radius: 1.5rem;
+  padding: 1.5rem;
+  overflow: hidden;
+  position: relative;
+}
+
+.news-card-img-holder{
+  width: 100%;
+  height: auto;
+  position: relative;
+}
+
+.news-card-img-holder img{
+  width: 100%;
+  height: auto;
+  max-height: 15rem;
+  object-fit: cover;
+  border-radius: 1.5rem;
+}
+
+.blog-title {
+  color: #22215B;
+  padding: 1rem 0;
+  font-size: 1.5rem;
+  /* Limiting width and handling overflow */
+  max-width: 100%; /* Adjust as needed */
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.description {
+  padding: 1rem 0;
+  color: #22215B80;
+  font-size: 1rem;
+  /* Limiting width and handling overflow */
+  max-width: 100%; /* Adjust as needed */
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+
+.blog-time{
+  font-size: .8rem;
+  color: #22215B;
+}
+
+.options{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 1rem;
+}
+
+.options span{
+  font-weight: 600;
+  color: #22215B;
+}
+
+.news-btn{
+  font-size: 1rem;
+  padding: .5rem 1rem;
+  border-radius: .5rem;
+  font-weight: 400;
+  background: #EEF7FE;
+  color: #22215B;
+  cursor: pointer;
+}
+
+ /* Style for container */
+.container-new {
+    margin-bottom: 100px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+/* Style for form */
+.container-new form {
+    /* Add any additional styling you need */
+}
+
+/* Style for form fields */
+.container-new form input[type="text"],
+.container-new form input[type="url"],
+.container-new form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+/* Style for upload button */
+.container-new form button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Style for upload button icon */
+.container-new form button i {
+    margin-right: 5px;
+}
+
+
+.no-affairs-message {
+            font-size: 20px;
+            color: black;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+.emoji {
+    font-size: 2em;
+    margin-left: 10px;
+    animation: bounce 1s infinite;
+}
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}

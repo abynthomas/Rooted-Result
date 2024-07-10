@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Rooted Zone</title>
+    <link rel="icon" href="{% static 'img/logo.png' %}">
+    <link rel="stylesheet" href="{% static 'home/vendors/feather/feather.css' %}">
+    <link rel="stylesheet" href="{% static 'home/vendors/ti-icons/css/themify-icons.css' %}">
+    <link rel="stylesheet" href="{% static 'home/css/vertical-layout-light/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/rooter.css' %}">
+    <link rel="stylesheet" href="{% static 'css/loading.css' %}">
+    <link rel="stylesheet" href="{% static 'css/user_progress_report.css' %}">
+    <link rel="stylesheet" href="{% static 'css/footer-icons.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.3.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
+    <style>
+        header h1 {
+  font-size: 30px;
+  font-weight: 600;
+  background-image: linear-gradient(to left, #553c9a, #b393d3);
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+  margin-bottom:20px;
+}
+    </style>
+</head>
+
+<body>
+
+<!--Loading-->
+
+    <div id="loading">
+        <img src="{% static 'video/tree.gif' %}" alt="Loading" >
+    </div>
+
+
+<!--Top Navbar-->
+
+     <div id="main-content" style="display: none;">
+         <div class="container-scroller" >
+             <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row navbar-dark">
+                 <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center bg-dark">
+                     <a class="navbar-brand brand-logo mr-5" href="">
+                         <img src="{% static 'img/logo.png' %}" class="mr-2" alt="logo"/>
+                     </a>
+                     <a class="navbar-brand brand-logo-mini" href="">
+                         <img src="{% static 'img/logo.png' %}" alt="logo"/>
+                     </a>
+                 </div>
+                 <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
+                     <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
+                         <span class="icon-menu"></span>
+                     </button>
+                     <ul class="navbar-nav navbar-nav-right">
+                         <li class="nav-item nav-profile dropdown">
+                             <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
+                                 <i class="fas fa-cog" style="font-size:25px;"></i>
+                             </a>
+                             <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
+                                 <a class="dropdown-item" href="{% url 'profile' %}">
+                                     <i class="ti-user text-primary"></i>
+                                     Profile
+                                 </a>
+                                 <a class="dropdown-item" href="{% url 'logout' %}">
+                                     <i class="ti-power-off text-primary"></i>
+                                     Logout
+                                 </a>
+                             </div>
+                         </li>
+                     </ul>
+                     <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
+                         <span class="icon-menu"></span>
+                     </button>
+                 </div>
+             </nav>
+
+
+<!--Side Navbar-->
+
+             <div class="container-fluid page-body-wrapper">
+                 <nav class="sidebar sidebar-offcanvas" id="sidebar">
+                    <ul class="nav">
+                      <li class="nav-item">
+                        <a class="nav-link"  href="{% url 'self_analysis' %}">
+                          <i class="icon-head menu-icon"></i>
+                          <span class="menu-title">Self Analysis</span>
+                        </a>
+                      </li>
+                        <li class="nav-item">
+                        <a class="nav-link"  href="{% url 'progress_report' %}">
+                          <i class="fas fa-chart-line menu-icon"></i>
+                          <span class="menu-title">Progress Report</span>
+                        </a>
+                      </li>
+                        <li class="nav-item">
+                        <a class="nav-link" href="{% url 'study_plan' %}">
+                          <i class="icon-book menu-icon"></i>
+                          <span class="menu-title">Study Plan</span>
+                        </a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="{% url 'current_affairs' %}">
+                          <i class="icon-globe menu-icon"></i>
+                          <span class="menu-title">Current Affairs</span>
+                        </a>
+                      </li>
+                    </ul>
+                 </nav>
+
+
+<!--Heading-->
+
+                 <div class="main-panel">
+                     <div class="content-wrapper">
+                         <div class="row">
+                             <div class="col-md-12 grid-margin stretch-card">
+                                 <div class="card position-relative">
+                                     <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar" style="border-radius:50px;">
+                                         <ul class="navbar-nav m-auto">
+                                             <li class="nav-item" style="margin-bottom:20px;margin-top:10px;">
+                                                 <center>
+                                                     <p style="color:white;font-size:20px;margin-top:10px;">Progress Report</p>
+                                                 </center>
+                                             </li>
+                                         </ul>
+                                     </nav>
+                                 </div>
+                             </div>
+
+
+<!--Content-->
+
+
+                             <div class="container" style="text-align: center;">
+                                <header>
+                                    <h1>ALL MOCK TEST RESULT</h1>
+                                </header>
+                             </div>
+                             <div class="w3-responsive" style="margin-bottom:60px;">
+                                <table class="w3-table-all" >
+                                    <thead>
+                                        <tr>
+                                            <th>Mock Test</th>
+                                            <th>Rank</th>
+                                            <th>Marks Obtained</th>
+                                            <th>Maximum Marks</th>
+                                            <th>Percentile</th>
+                                            <th>Current Affairs</th>
+                                            <th>Maths</th>
+                                            <th>English</th>
+                                            <th>Malayalam</th>
+                                            <th>Biology</th>
+                                            <th>History</th>
+                                            <th>Geography</th>
+                                            <th>Economics</th>
+                                            <th>Indian Constitution</th>
+                                            <th>Kerala Governance</th>
+                                            <th>Arts, Literature, Culture, Sports</th>
+                                            <th>Special Acts</th>
+                                            <th>Physics</th>
+                                            <th>Chemistry</th>
+                                            <th>IT</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for mock_test, test_details in test_display_data.items %}
+                                        <tr>
+                                            <td>{{ mock_test }}</td>
+                                            <td>{{ test_details.rank }}</td>
+                                            <td>{{ test_details.marks_obtained }}</td>
+                                            <td>{{ test_details.maximum_marks }}</td>
+                                            <td>{{ test_details.percentile }}</td>
+                                            <td>{{ test_details.current_affairs }}</td>
+                                            <td>{{ test_details.maths }}</td>
+                                            <td>{{ test_details.english }}</td>
+                                            <td>{{ test_details.malayalam }}</td>
+                                            <td>{{ test_details.biology }}</td>
+                                            <td>{{ test_details.history }}</td>
+                                            <td>{{ test_details.geography }}</td>
+                                            <td>{{ test_details.economics }}</td>
+                                            <td>{{ test_details.indian_constitution }}</td>
+                                            <td>{{ test_details.kerala_governance }}</td>
+                                            <td>{{ test_details.arts }}</td>
+                                            <td>{{ test_details.special_acts }}</td>
+                                            <td>{{ test_details.physics }}</td>
+                                            <td>{{ test_details.chemistry }}</td>
+                                            <td>{{ test_details.it }}</td>
+                                        </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                             </div>
+
+                             <div class="container" style="text-align: center;">
+                                <header>
+                                    <h1>TOTAL MARK COMPARISON</h1>
+                                </header>
+                             </div>
+                             <canvas id="myChart" class="barchart"></canvas>
+
+                             <div class="container" style="text-align: center;">
+                                <header>
+                                    <h1>RANK COMPARISON</h1>
+                                </header>
+                             </div>
+                             <canvas id="rankComparisonChart" class="barchart"></canvas>
+
+                              <div class="container" style="text-align: center;">
+                                <header>
+                                    <h1>SECTIONAL COMPARISON</h1>
+                                </header>
+                              </div>
+                              <div class="container" style="width:400px;">
+                                  <a href="{% url 'sectional_chart' %}">
+                                      <button type="button" class="btn btn-primary btn-lg btn-block mx-auto" style="width:100%;">VIEW SECTIONAL COMPARISON</button>
+                                  </a>
+<!--                                  <button id="downloadPdf" class="btn btn-danger btn-lg btn-block mx-auto" style="margin-top:20px;width:200px;">Download PDF</button>-->
+                              </div>
+                         </div>
+                     </div>
+                 </div>
+             </div>
+
+
+<!--Footer-->
+
+         <footer class="footer">
+            <div class="rounded-social-buttons">
+                <a class="social-button facebook" href="https://www.facebook.com/drishtinewslive/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                <a class="social-button youtube" href="https://www.youtube.com/@drishtinewsmalayalam" target="_blank"><i class="fab fa-youtube"></i></a>
+                <a class="social-button instagram" href="https://www.instagram.com/rooted_psc/" target="_blank"><i class="fab fa-instagram"></i></a>
+            </div>
+            <div class="d-flex justify-content-center">
+                <span class="text-muted text-center">Copyright © 2024 rooted.zone</span>
+            </div>
+            <div class="d-flex justify-content-center mt-2">
+                <span class="text-muted text-center">Powered by drishti.news</span>
+            </div>
+         </footer>
+         </div>
+     </div>
+
+
+<!--Script-->
+
+<!--BARCHART-->
+    <script>
+      // Assuming test_display_data is a dictionary with mock test names as keys and their corresponding test details as values
+      var xValues = []; // Array to store mock test names
+      var yValuesMarks = []; // Array to store marks obtained
+      var yValuesRanks = []; // Array to store ranks
+
+      // Loop through the test_display_data dictionary items
+      {% for mock_test, test_details in test_display_data.items %}
+        xValues.push("{{ mock_test }}"); // Push mock test name to xValues array
+        yValuesMarks.push({{ test_details.percentage }}); // Push marks obtained to yValuesMarks array
+        yValuesRanks.push({{ test_details.rank }}); // Push rank to yValuesRanks array
+      {% endfor %}
+
+     // Bar chart for marks obtained
+    new Chart("myChart", {
+      type: "bar",
+      data: {
+        labels: xValues,
+        datasets: [{
+          label: 'Percentage',
+          data: yValuesMarks,
+          backgroundColor: getRandomColors(xValues.length), // Use random colors for each bar
+          borderColor: 'black', // Border color
+          borderWidth: 1
+        }]
+      },
+      options: {
+        scales: {
+          yAxes: [{
+            scaleLabel: {
+              display: true,
+              labelString: 'Marks Obtained %',
+              padding: 30 // Adjust the padding here as needed
+            },
+            ticks: {
+              beginAtZero: true,
+            }
+          }],
+          xAxes: [{
+            scaleLabel: {
+              display: true,
+              labelString: 'Mock Tests',
+              padding: 10 // Adjust the padding here as needed
+            },
+            barPercentage: 0.5, // Set the width of the bars to 50% of available space
+            categoryPercentage: 0.8 // Set the width of the category (group of bars) to 80% of available space
+          }]
+        },
+        title: {
+          display: true,
+          text: "Total Marks Obtained in Percentage"
+        },
+        legend: {
+          display: false // Hide legend since we're showing only one dataset
+        }
+      }
+    });
+
+      // Line chart for rank comparison
+      new Chart("rankComparisonChart", {
+        type: "line",
+        data: {
+          labels: xValues,
+          datasets: [{
+            label: 'Rank',
+            data: yValuesRanks,
+            backgroundColor: 'red',
+            borderColor: 'red',
+            borderWidth: 1,
+            fill: false
+          }]
+        },
+        options: {
+          scales: {
+            yAxes: [{
+              scaleLabel: {
+                display: true,
+                labelString: 'Rank',
+                padding: 30 // Adjust the padding here as needed
+              },
+              ticks: {
+              reverse: true, // Set this to true to make 0 appear at the top
+              beginAtZero: false, // Allow negative ranks
+              suggestedMin: 0 // Set the minimum value of the y-axis to 0
+            }
+            }],
+            xAxes: [{
+              scaleLabel: {
+                display: true,
+                labelString: 'Mock Tests',
+                padding: 10 // Adjust the padding here as needed
+              }
+            }]
+          },
+
+        }
+      });
+
+      // Function to generate random colors
+      function getRandomColors(numColors) {
+        var colors = [];
+        for (var i = 0; i < numColors; i++) {
+          colors.push(getRandomColor());
+        }
+        return colors;
+      }
+
+      function getRandomColor() {
+        var letters = '0123456789ABCDEF';
+        var color = '#';
+        for (var i = 0; i < 6; i++) {
+          color += letters[Math.floor(Math.random() * 16)];
+        }
+        return color;
+      }
+    </script>
+
+    <script src="{% static 'home/vendors/js/vendor.bundle.base.js' %}"></script>
+    <script src="{% static 'home/js/off-canvas.js' %}"></script>
+    <script src="{% static 'home/js/template.js' %}"></script>
+    <script src="{% static 'js/loading.js' %}"></script>
+    <script src="{% static 'js/progress_report_nod.js' %}"></script>
+
+</body>
+</html>

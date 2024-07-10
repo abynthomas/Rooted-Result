@@ -1,0 +1,20 @@
+.no-affairs-message {
+            font-size: 20px;
+            color: black;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+.emoji {
+    font-size: 2em;
+    margin-left: 10px;
+    animation: bounce 1s infinite;
+}
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}

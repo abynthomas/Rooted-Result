@@ -1,0 +1,80 @@
+* {
+  box-sizing: border-box;
+}
+
+/* Add these styles to center the result cards */
+.row.justify-content-center {
+  align-items: center; /* Center items vertically */
+}
+
+/* Add text alignment for the content inside each result card */
+.column {
+  float: left;
+  width: 25%;
+  padding: 0 10px;
+  text-align: center; /* Center content horizontally */
+}
+
+
+/* Remove extra left and right margins, due to padding */
+.row {margin: 0 -5px;}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive columns */
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+    display: block;
+    margin-bottom: 20px;
+  }
+}
+
+/* Style the counter cards */
+.result-card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  padding: 16px;
+  text-align: center;
+  background-color: white;
+  margin-bottom: 20px;
+  border-radius:20px;
+}
+
+
+/* Adjusted styles for .new-button1 and .new-button2 */
+.new-button1,
+.new-button2 {
+    width: 200px;
+    margin-bottom: 20px;
+}
+
+/* Desktop Styles */
+@media only screen and (min-width: 768px) {
+    .new-button1,
+    .new-button2 {
+        width: 200px;
+        margin-bottom: 20px;
+    }
+}
+.result-card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  padding: 16px;
+  text-align: center;
+  background-color: white;
+  margin-bottom: 20px;
+  border-radius:20px;
+}
+
+/* Mobile Styles */
+@media only screen and (max-width: 767px) {
+    .new-button1,
+    .new-button2 {
+        width: 200px;
+        position: relative;
+    }
+}

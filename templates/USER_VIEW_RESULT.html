@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Rooted Zone</title>
+    <link rel="icon" href="{% static 'img/logo.png' %}">
+    <link rel="stylesheet" href="{% static 'home/vendors/feather/feather.css' %}">
+    <link rel="stylesheet" href="{% static 'home/vendors/ti-icons/css/themify-icons.css' %}">
+    <link rel="stylesheet" href="{% static 'home/css/vertical-layout-light/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/rooter.css' %}">
+    <link rel="stylesheet" href="{% static 'css/loading.css' %}">
+    <link rel="stylesheet" href="{% static 'css/user_view_result.css' %}">
+    <link rel="stylesheet" href="{% static 'css/footer-icons.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+</head>
+
+<body>
+
+<!--Loading-->
+
+    <div id="loading">
+        <img src="{% static 'video/tree.gif' %}" alt="Loading">
+    </div>
+
+
+<!--Top Navbar-->
+
+    <div id="main-content" style="display: none;">
+        <div class="container-scroller">
+            <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row navbar-dark">
+                <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center bg-dark">
+                    <a class="navbar-brand brand-logo mr-5" href="">
+                        <img src="{% static 'img/logo.png' %}" class="mr-2" alt="logo">
+                    </a>
+                    <a class="navbar-brand brand-logo-mini" href="">
+                        <img src="{% static 'img/logo.png' %}" alt="logo">
+                    </a>
+                </div>
+                <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
+                    <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
+                        <span class="icon-menu"></span>
+                    </button>
+                    <ul class="navbar-nav navbar-nav-right">
+                        <li class="nav-item nav-profile dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
+                                <i class="fas fa-cog" style="font-size:25px;" aria-label="Settings"></i>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
+                                <a class="dropdown-item" href="{% url 'profile' %}">
+                                    <i class="ti-user text-primary"></i>
+                                    Profile
+                                </a>
+                                <a class="dropdown-item" href="{% url 'logout' %}">
+                                    <i class="ti-power-off text-primary"></i>
+                                    Logout
+                                </a>
+                            </div>
+                        </li>
+                    </ul>
+                    <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
+                        <span class="icon-menu"></span>
+                    </button>
+                </div>
+            </nav>
+
+
+<!--Side Navbar-->
+
+            <div class="container-fluid page-body-wrapper">
+                <nav class="sidebar sidebar-offcanvas" id="sidebar">
+                    <ul class="nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'self_analysis' %}">
+                                <i class="icon-head menu-icon"></i>
+                                <span class="menu-title">Self Analysis</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'progress_report' %}">
+                                <i class="fas fa-chart-line menu-icon"></i>
+                                <span class="menu-title">Progress Report</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'study_plan' %}">
+                                <i class="icon-book menu-icon"></i>
+                                <span class="menu-title">Study Plan</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'current_affairs' %}">
+                                <i class="icon-globe menu-icon"></i>
+                                <span class="menu-title">Current Affairs</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+
+
+<!--Heading-->
+
+                <div class="main-panel">
+                    <div class="content-wrapper">
+                        <div class="row">
+                            <div class="col-md-12 grid-margin stretch-card">
+                                <div class="card position-relative">
+                                    <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar" style="border-radius:50px;">
+                                        <ul class="navbar-nav m-auto">
+                                            <li class="nav-item">
+                                                <center>
+                                                    <p style="color:white;font-size:20px;margin-top:10px;">LDC EXAM 2024<span style="font-size: 15px;margin-left:25px;">Mock Test {{ mock_test_id }}</span></p>
+                                                </center>
+                                                <br>
+                                                <center>
+                                                    <p style="color:white;margin-bottom:10px;">
+                                                        <span><i class='fas fa-edit'></i> {{ total_questions }} Questions</span>
+                                                        <span style="margin-left:30px;"><i class="fas fa-file-alt"></i> {{ total_marks }} Mark</span>
+                                                        <span style="margin-left:30px;"><i class="fas fa-stopwatch"></i> {{ total_time }} Minute</span>
+                                                        <span style="margin-left:30px;"><i class="fa fa-calendar"></i> {{ date }}</span>
+                                                    </p>
+                                                </center>
+                                            </li>
+                                        </ul>
+                                    </nav>
+                                </div>
+                            </div>
+
+
+<!--Content-->
+
+                            <div class="content-wrapper">
+                                <div class="row justify-content-center">
+                                  <div class="column">
+                                    <div class="result-card">
+                                        <i class="fas fa-clipboard-check" style="color:green;font-size:25px;margin-top:20px;"></i>
+                                        <p style="font-size:20px;margin-top:10px;">Marks Obtained</p>
+                                        <p style="color:green;font-size:20px;margin-top:10px;">{{ marks_obtained }} / {{ total_marks }}</p>
+                                    </div>
+                                  </div>
+
+                                  <div class="column">
+                                    <div class="result-card">
+                                        <i class="fa fa-trophy" style="color:#E5DF17;font-size:25px;margin-top:20px;"></i>
+                                        <p style="font-size:20px;margin-top:10px;">Rank</p>
+                                        <p style="color:#E5DF17;font-size:20px;margin-top:10px;">{{ rank }} / {{ total_students }}</p>
+                                    </div>
+                                  </div>
+
+                                  <div class="column">
+                                    <div class="result-card">
+                                        <i class="fas fa-percent" style="color:black;font-size:25px;margin-top:20px;"></i>
+                                        <p style="font-size:20px;margin-top:10px;">Percentile</p>
+                                        <p style="color:black;font-size:20px;margin-top:10px;">{{ percentile|floatformat:"2" }}</p>
+                                    </div>
+                                  </div>
+
+                                  <div class="column">
+                                    <div class="result-card">
+                                        <i class="fas fa-crosshairs" style="color:blue;font-size:25px;margin-top:20px;"></i>
+                                        <p style="font-size:20px;margin-top:10px;">Accuracy</p>
+                                        <p style="color:blue;font-size:20px;margin-top:10px;">{{ accuracy }} %</p>
+                                    </div>
+                                  </div>
+
+                                  <div class="column">
+                                    <div class="result-card">
+                                        <i class="fa fa-check" style="color:green;font-size:25px;margin-top:20px;"></i>
+                                        <p style="font-size:20px;margin-top:10px;">Correct</p>
+                                        <p style="color:green;font-size:20px;margin-top:10px;">{{ correct }}</p>
+                                    </div>
+                                  </div>
+
+                                  <div class="column">
+                                    <div class="result-card">
+                                        <i class="fa fa-close" style="color:red;font-size:25px;margin-top:20px;"></i>
+                                        <p style="font-size:20px;margin-top:10px;">Incorrect</p>
+                                        <p style="color:red;font-size:20px;margin-top:10px;">{{ incorrect }}</p>
+                                    </div>
+                                  </div>
+
+                                  <div class="column">
+                                    <div class="result-card">
+                                        <i class="fa fa-forward" style="color:grey;font-size:25px;margin-top:20px;"></i>
+                                        <p style="font-size:20px;margin-top:10px;">Skipped</p>
+                                        <p style="color:grey;font-size:20px;margin-top:10px;">{{ skipped }}</p>
+                                    </div>
+                                  </div>
+
+                                  <div class="column">
+                                    <div class="result-card">
+                                        <i class="fas fa-stopwatch" style="color:red;font-size:25px;margin-top:20px;"></i>
+                                        <p style="font-size:20px;margin-top:10px;">Time Taken</p>
+                                        <p style="color:red;font-size:20px;margin-top:10px;">{{ time_taken }} Min</p>
+                                    </div>
+                                  </div>
+                                </div>
+
+                                <div class="row justify-content-center">
+                                    <a href="{% url 'ai_analysis' mock_test_id %}">
+                                        <button type="button" class="btn btn-info btn-rounded btn-fw new-button1">AI Analysis</button>
+                                    </a>
+                                </div>
+                                <div class="row justify-content-center">
+                                    <a href="{% url 'download_solution' mock_test_id %}" class="download-link">
+                                        <button type="button" class="btn btn-info btn-rounded btn-fw new-button2">View Solutions</button>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+<!--Footer-->
+
+            <footer class="footer">
+                <div class="rounded-social-buttons">
+                    <a class="social-button facebook" href="https://www.facebook.com/drishtinewslive/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                    <a class="social-button youtube" href="https://www.youtube.com/@drishtinewsmalayalam" target="_blank"><i class="fab fa-youtube"></i></a>
+                    <a class="social-button instagram" href="https://www.instagram.com/rooted_psc/" target="_blank"><i class="fab fa-instagram"></i></a>
+                </div>
+                <div class="d-flex justify-content-center">
+                    <span class="text-muted text-center">Copyright © 2024 rooted.zone</span>
+                </div>
+                <div class="d-flex justify-content-center mt-2">
+                    <span class="text-muted text-center">Powered by drishti.news</span>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+
+<!--Script-->
+
+    <script src="{% static 'home/vendors/js/vendor.bundle.base.js' %}"></script>
+    <script src="{% static 'home/js/off-canvas.js' %}"></script>
+    <script src="{% static 'home/js/template.js' %}"></script>
+    <script src="{% static 'js/loading.js' %}"></script>
+    <script src="{% static 'js/user_view_result.js' %}"></script>
+
+</body>
+</html>

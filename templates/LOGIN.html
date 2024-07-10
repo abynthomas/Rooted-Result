@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+    <title>Rooted Zone</title>
+    <link rel="icon" href="{% static 'img/logo.png' %}">
+    <style>
+        body {
+            background: url('{% static 'img/bg1.png' %}') no-repeat center center fixed;
+            background-size: cover;
+            overflow: hidden;
+            margin: 0;
+            padding: 0;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-attachment: fixed;
+        }
+    </style>
+</head>
+
+<body>
+ <div class="wrapper">
+    <nav class="nav">
+        <div class="nav-logo">
+            <img src="{% static 'img/logo.png' %}" height="100" width="120" style="margin-top:30px;" alt="Logo">
+        </div>
+    </nav>
+
+    {% if messages %}
+        {% for message in messages %}
+            <p style="color:white;position:absolute;top:300px;">{{ message }}</p>
+        {% endfor %}
+    {% endif %}
+
+    <!----------------------------- Form box ----------------------------------->
+
+    <div class="form-box">
+        <div class="login-container" id="login">
+            <div class="top">
+                <header>Login</header>
+            </div>
+            <form method="post" action="{% url 'login' %}">
+                {% csrf_token %}
+                <div class="input-box">
+                    <input type="text" class="input-field" name="email" placeholder="Enter Your Email">
+                    <i class="bx bx-user"></i>
+                </div>
+                <div class="input-box">
+                    <input type="submit" class="submit" value="Sign In">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

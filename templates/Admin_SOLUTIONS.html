@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Rooted Zone</title>
+    <link rel="icon" href="{% static 'img/logo.png' %}">
+    <link rel="stylesheet" href="{% static 'home/vendors/feather/feather.css' %}">
+    <link rel="stylesheet" href="{% static 'home/vendors/ti-icons/css/themify-icons.css' %}">
+    <link rel="stylesheet" href="{% static 'home/css/vertical-layout-light/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/rooter.css' %}">
+    <link rel="stylesheet" href="{% static 'css/loading.css' %}">
+    <link rel="stylesheet" href="{% static 'css/nothing.css' %}">
+    <link rel="stylesheet" href="{% static 'css/admin_solutions.css' %}">
+    <link rel="stylesheet" href="{% static 'css/footer-icons.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+
+<!--Loading-->
+    <div id="loading">
+        <img src="{% static 'video/tree.gif' %}" alt="Loading">
+    </div>
+
+
+<!--Top Navbar-->
+    <div id="main-content" style="display: none;">
+        <div class="container-scroller">
+            <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row navbar-dark">
+                <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center bg-dark">
+                    <a class="navbar-brand brand-logo mr-5" href="">
+                        <img src="{% static 'img/logo.png' %}" class="mr-2" alt="logo" />
+                    </a>
+                    <a class="navbar-brand brand-logo-mini" href="">
+                        <img src="{% static 'img/logo.png' %}" alt="logo" />
+                    </a>
+                </div>
+                <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
+                    <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
+                        <span class="icon-menu"></span>
+                    </button>
+                    <ul class="navbar-nav navbar-nav-right">
+                        <li class="nav-item nav-profile dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
+                                <i class="fas fa-cog" style="font-size:25px;"></i>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
+                                <a class="dropdown-item" href="{% url 'admin_profile' %}">
+                                    <i class="ti-user text-primary"></i>
+                                    Profile
+                                </a>
+                                <a class="dropdown-item" href="{% url 'logout' %}">
+                                    <i class="ti-power-off text-primary"></i>
+                                    Logout
+                                </a>
+                            </div>
+                        </li>
+                    </ul>
+                    <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
+                        <span class="icon-menu"></span>
+                    </button>
+                </div>
+            </nav>
+
+
+<!--Side Navbar-->
+            <div class="container-fluid page-body-wrapper">
+                <nav class="sidebar sidebar-offcanvas" id="sidebar">
+                    <ul class="nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'admin_home' %}">
+                                <i class="fas fa-file-alt menu-icon"></i>
+                                <span class="menu-title">Mock Test</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'admin_analysis' %}">
+                                <i class="fas fa-chart-line menu-icon"></i>
+                                <span class="menu-title">Mock Test Analysis</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'add_solution' %}">
+                                <i class="fas fa-edit menu-icon"></i>
+                                <span class="menu-title">Solutions</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'add_study_plan' %}">
+                                <i class="icon-book menu-icon"></i>
+                                <span class="menu-title">Study Plan</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'student_activity' %}">
+                                <i class="fas fa-user-friends menu-icon"></i>
+                                <span class="menu-title">Student Activity</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'add_current_affairs' %}">
+                                <i class="icon-globe menu-icon"></i>
+                                <span class="menu-title">Current Affairs</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+
+
+<!--Main Content-->
+
+<!--Heading-->
+
+                <div class="main-panel">
+                    <div class="content-wrapper">
+                        <div class="row">
+                            <div class="col-md-12 grid-margin stretch-card">
+                                <div class="card position-relative">
+                                    <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar" style="border-radius:50px;">
+                                        <ul class="navbar-nav m-auto">
+                                            <li class="nav-item" style="margin-bottom:20px;margin-top:10px;">
+                                                <center>
+                                                    <p style="color:white;font-size:20px;margin-top:10px;">Solutions</p>
+                                                </center>
+                                            </li>
+                                        </ul>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+
+
+<!--Upload Form-->
+
+                        <div class="container" style="margin-bottom:100px;">
+                            <form method="post" enctype="multipart/form-data">
+                                {% csrf_token %}
+                                {{ form.as_p }}
+                                <button type="submit" class="btn btn-success btn-icon-text" style="margin-top:10px;">
+                                    <i class="ti-upload btn-icon-prepend"></i>
+                                    Upload
+                                </button>
+                            </form>
+                            {% if messages %}
+                                {% for message in messages %}
+                                    <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert" style="margin-top:20px;">
+                                        {{ message }}
+                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                {% endfor %}
+                            {% endif %}
+                        </div>
+
+
+<!--File View-->
+
+                        <div class="container">
+                            <h3 style="margin-bottom:30px;">Uploaded Solutions</h3>
+                        </div>
+
+                        <div class="container">
+                            <div class="row">
+                                {% if uploaded_solutions %}
+                                    {% for solution in uploaded_solutions %}
+                                        <div class="file-card">
+                                            <a href="{{ solution.solution_file.url }}">
+                                                <div class="file-icon" style="font-size:40px;"><i class="fa fa-file-pdf-o" style="color:red"></i></div>
+                                            </a>
+                                            <div class="file-name">
+                                                Mock Test: {{ solution.mock_test_number }}
+                                            </div>
+                                            <form method="post" action="{% url 'delete_solution' solution.id %}" onsubmit="return confirmDelete();">
+                                                {% csrf_token %}
+                                                <button type="submit" class="btn btn-danger btn-rounded btn-icon" >
+                                                    <i class="fa fa-trash-o"></i>
+                                                </button>
+                                            </form>
+                                        </div>
+                                    {% endfor %}
+                                {% else %}
+                                <div class="container">
+                                    <div class="no-affairs-message">
+                                        Oops, sorry! No solutions found!
+                                        <span class="emoji">😢</span>
+                                    </div>
+                                </div>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+<!--Footer-->
+
+           <footer class="footer">
+                <div class="rounded-social-buttons">
+                    <a class="social-button facebook" href="https://www.facebook.com/drishtinewslive/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                    <a class="social-button youtube" href="https://www.youtube.com/@drishtinewsmalayalam" target="_blank"><i class="fab fa-youtube"></i></a>
+                    <a class="social-button instagram" href="https://www.instagram.com/rooted_psc/" target="_blank"><i class="fab fa-instagram"></i></a>
+                </div>
+                <div class="d-flex justify-content-center">
+                    <span class="text-muted text-center">Copyright © 2024 rooted.zone</span>
+                </div>
+                <div class="d-flex justify-content-center mt-2">
+                    <span class="text-muted text-center">Powered by drishti.news</span>
+                </div>
+           </footer>
+        </div>
+    </div>
+
+
+<!--Script-->
+
+    <script src="{% static 'home/vendors/js/vendor.bundle.base.js' %}"></script>
+    <script src="{% static 'home/js/off-canvas.js' %}"></script>
+    <script src="{% static 'home/js/template.js' %}"></script>
+    <script src="{% static 'js/loading.js' %}"></script>
+    <script src="{% static 'js/delete.js' %}"></script>
+
+</body>
+</html>
